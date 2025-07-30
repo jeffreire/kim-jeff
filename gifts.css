@@ -1,0 +1,392 @@
+
+/* Estilos para a página de presentes */
+.gift-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    gap: 10px;
+}
+
+.category-btn {
+    background-color: #f9f7f5;
+    border: 1px solid rgba(11, 105, 168, 0.418);
+    color: #555;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-btn:hover, .category-btn.active {
+    background-color: rgba(11, 105, 168, 0.418);
+    color: white;
+}
+
+.gift-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.gift-item {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gift-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gift-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.gift-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gift-item:hover .gift-image img {
+    transform: scale(1.05);
+}
+
+.gift-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.gift-info h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.gift-price {
+    color: rgba(11, 105, 168, 0.767);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.gift-btn {
+    width: 100%;
+}
+
+/* Seção de PIX */
+.highlight-section {
+    background-color: #f0f8ff;
+}
+
+.pix-container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pix-container i {
+    font-size: 4rem;
+    color: rgba(11, 105, 168, 0.767);
+    margin-bottom: 1rem;
+}
+
+.pix-key {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+/* Modal de Presente */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.gift-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.gift-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.gift-form-group input,
+.gift-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.gift-form-submit {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+    .gift-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gift-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+    
+    .gift-image {
+        height: 160px;
+    }
+    
+    .gift-info {
+        padding: 1rem;
+    }
+    
+    .gift-info h3 {
+        font-size: 1rem;
+    }
+    
+    .gift-price {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gift-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .gift-image {
+        height: 140px;
+    }
+    
+    .category-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .gift-categories {
+        gap: 5px;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .gift-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+    
+    .gift-image {
+        height: 120px;
+    }
+    
+    .gift-info {
+        padding: 0.8rem;
+    }
+    
+    .gift-btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gift-item {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+/* Efeito cascata para os cards aparecerem sequencialmente */
+.gift-item:nth-child(1) { animation-delay: 0.1s; }
+.gift-item:nth-child(2) { animation-delay: 0.2s; }
+.gift-item:nth-child(3) { animation-delay: 0.3s; }
+.gift-item:nth-child(4) { animation-delay: 0.4s; }
+.gift-item:nth-child(5) { animation-delay: 0.5s; }
+.gift-item:nth-child(6) { animation-delay: 0.6s; }
+
+
+/* Animação para transição suave entre categorias */
+.gift-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gift-item.filtered-out {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* Animação para os botões de categoria */
+.category-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgba(11, 105, 168, 0.767);
+    transition: width 0.3s ease;
+}
+
+.category-btn:hover::after,
+.category-btn.active::after {
+    width: 100%;
+}
+
+/* Animação para o modal */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Animação para os campos do formulário */
+@keyframes formFieldFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.gift-form-group {
+    animation: formFieldFadeIn 0.4s ease-out backwards;
+}
+
+.gift-form-group:nth-child(1) { animation-delay: 0.1s; }
+.gift-form-group:nth-child(2) { animation-delay: 0.2s; }
+.gift-form-group:nth-child(3) { animation-delay: 0.3s; }
+.gift-form-group:nth-child(4) { animation-delay: 0.4s; }
+
+
+/* Animação para o ícone do PIX */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.pix-container i {
+    animation: pulse 2s infinite;
+}
+
+/* Animação para o botão de copiar */
+@keyframes copySuccess {
+    0% {
+        background-color: rgba(11, 105, 168, 0.418);
+    }
+    50% {
+        background-color: #4CAF50;
+    }
+    100% {
+        background-color: rgba(11, 105, 168, 0.418);
+    }
+}
+
+.copy-animation {
+    animation: copySuccess 1.5s;
+}
+
+/* Animações que ativam ao rolar a página */
+@keyframes fadeInOnScroll {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-animate {
+    opacity: 0;
+}
+
+.scroll-animate.active {
+    animation: fadeInOnScroll 0.8s forwards;
+}

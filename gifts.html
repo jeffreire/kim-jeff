@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes - Kim & Jeff</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="gifts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Kimberly & Jefferson</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#detalhes">Detalhes</a></li>
+                <li><a href="index.html#galeria">Galeria</a></li>
+                <li><a href="index.html#rsvp">RSVP</a></li>
+                <li><a href="gifts.html" class="active">Presentes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Navegação inferior para mobile -->
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>Início</a></li>
+            <li><a href="index.html#detalhes"><i class="fas fa-info-circle"></i>Detalhes</a></li>
+            <li><a href="gifts.html" class="active"><i class="fas fa-gift"></i>Presentes</a></li>
+            <li><a href="index.html#rsvp"><i class="fas fa-envelope"></i>RSVP</a></li>
+            <li><a href="index.html#galeria"><i class="fas fa-images"></i>Galeria</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section para Presentes -->
+    <section class="hero"
+        style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(11, 105, 168, 0.418)), url('assets/images_originais/32.jpg');">
+        <div class="hero-text fade-in">
+            <h2 id="title">Lista de Presentes</h2>
+            <p id="names">Kimberly & Jefferson</p>
+            <p id="sub-title-gift">Sua presença é o nosso maior presente, mas se ainda assim você quiser nos dar algo,
+                abaixo estão algumas sugestões:
+            </p>
+        </div>
+    </section>
+
+    <!-- Seção de Explicação -->
+    <section id="gift-info">
+        <div class="container-details">
+            <h2>Como Funciona Nossa Lista</h2>
+            <div class="details-cards">
+                <div class="details-card slide-up">
+                    <i class="fas fa-gift"></i>
+                    <h3>Escolha um Presente</h3>
+                    <p>Navegue pelos itens da nossa lista e escolha o que mais combina com você.</p>
+                </div>
+                <div class="details-card slide-up">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Contribuição</h3>
+                    <p>Você pode contribuir com o valor total ou parcial para qualquer item da lista.</p>
+                </div>
+                <div class="details-card slide-up">
+                    <i class="fas fa-heart"></i>
+                    <h3>Agradecimento</h3>
+                    <p>Receba nosso agradecimento especial por fazer parte deste momento!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista de Presentes -->
+    <section id="gift-list">
+        <div class="container-details">
+            <h2>Nossa Lista de Desejos</h2>
+
+            <!-- Categorias de Presentes -->
+            <div class="gift-categories">
+                <button class="category-btn active" data-category="all">Todos</button>
+                <button class="category-btn" data-category="home">Casa</button>
+                <button class="category-btn" data-category="appliances">Eletrodomésticos</button>
+                <button class="category-btn" data-category="decor">Decoração</button>
+                <button class="category-btn" data-category="experience">Experiências</button>
+            </div>
+
+            <!-- Grid de Presentes -->
+            <div class="gift-grid">
+                <!-- Casa -->
+                <div class="gift-item" data-category="home">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/jogo-cama.png" alt="Jogo de Cama">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Jogo de Cama King</h3>
+                        <p class="gift-price">R$ 399,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+
+                <div class="gift-item" data-category="home">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/toalhas.png" alt="Kit Toalhas">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Kit de Toalhas</h3>
+                        <p class="gift-price">R$ 249,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Eletrodomésticos -->
+                <div class="gift-item" data-category="appliances">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/mixer.png" alt="Mixer">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Mixer de Cozinha</h3>
+                        <p class="gift-price">R$ 299,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+
+                <div class="gift-item" data-category="appliances">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/cafeteira.png" alt="Cafeteira">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Cafeteira Elétrica</h3>
+                        <p class="gift-price">R$ 450,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Decoração -->
+                <div class="gift-item" data-category="decor">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/luminaria.png" alt="Luminária">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Luminária de Mesa</h3>
+                        <p class="gift-price">R$ 180,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Experiências -->
+                <div class="gift-item" data-category="experience">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/lua-de-mel.png" alt="Lua de Mel">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Contribuição para Lua de Mel</h3>
+                        <p class="gift-price">Valor livre</p>
+                        <button class="btn-primary gift-btn">Contribuir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de PIX -->
+    <section id="gift-pix" class="highlight-section">
+        <div class="container-details">
+            <h2>Prefere contribuir diretamente?</h2>
+            <div class="pix-container">
+                <i class="fas fa-qrcode"></i>
+                <h3>PIX para Presente</h3>
+                <p>Se preferir, você pode nos enviar um valor via PIX:</p>
+                <p class="pix-key">joao.maria@email.com</p>
+                <button class="btn-primary copy-pix">Copiar Chave PIX</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 João & Maria - Todos os direitos reservados</p>
+            <p>Com amor, esperamos por você no nosso grande dia!</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Presente -->
+    <div id="gift-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Presentear</h2>
+            <div id="gift-modal-content">
+                <!-- Conteúdo preenchido via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="music-player">
+        <audio id="background-music" loop>
+            <source src="assets\music\musica.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+        <button id="music-toggle" class="music-btn">
+            <i class="fas fa-music"></i>
+            <span class="music-status">Tocar Música</span>
+        </button>
+    </div>
+    <script src="script.js"></script>
+    <script src="carousel.js"></script>
+    <script src="gifts.js"></script>
+    <script src="music-player.js"></script>
+</body>
+
+</html>

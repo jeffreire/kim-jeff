@@ -1,0 +1,797 @@
+/* Reset e estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #0a0a0a57;
+}
+
+.container {
+    /* width: 90%; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.container-details {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: rgba(11, 105, 168, 0.418);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(11, 105, 168, 0.418);
+    ;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: transform 0.4s ease;
+}
+
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+.header-visible {
+    transform: translateY(0);
+}
+
+@font-face {
+    font-family: 'AvenueMadison';
+    src: url('assets/fonts/Avenue de Madison.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+header h1 {
+    font-family: 'AvenueMadison', cursive;
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: rgba(11, 105, 168, 0.418);
+}
+
+/* Bottom Navigation Bar (Mobile) */
+.bottom-nav {
+    display: none;
+    /* Escondido por padrão */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -2px 10px rgba(11, 105, 168, 0.418);
+    z-index: 100;
+    padding: 10px 0;
+}
+
+.bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.bottom-nav li {
+    text-align: center;
+    width: 25%;
+}
+
+.bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+}
+
+.bottom-nav a:hover,
+.bottom-nav a.active {
+    color: rgba(11, 105, 168, 0.418);
+    ;
+}
+
+.bottom-nav i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+/* Hero Section */
+@font-face {
+    font-family: 'CoolveticaRg';
+    src: url('assets/fonts/CoolveticaRg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LoveYou';
+    src: url('assets/fonts/loveyou.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AvenueMadison';
+    src: url('assets/fonts/Avenue de Madison.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plante';
+    src: url('assets/fonts/Plante.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HillsideSwashed';
+    src: url('assets/fonts/HillsideSwashed_PERSONAL_USE_ONLY.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(11, 105, 168, 0.418)), url('assets/images/12.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-text {
+    /* max-width: 80%; */
+    padding: 2rem;
+    background-color: rgba(253, 253, 253, 0.664);
+    border-radius: 10px;
+}
+
+.hero-text h1 {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.3rem;
+    /* Reduced from 3.5rem */
+    /* letter-spacing: -1px; */
+    /* Added to reduce spacing between characters */
+    color: rgb(0, 19, 32);
+}
+
+.hero-text h2 {
+    font-family: 'HillsideSwashed', serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: rgba(11, 105, 168, 0.979);
+}
+
+
+.hero-text .date {
+    font-size: 1.8rem;
+    font-family: 'Times New Roman', serif;
+    margin-bottom: 0.5rem;
+    color: rgba(11, 105, 168, 0.979);
+    font-weight: bold;
+}
+
+/* Botões */
+.btn-primary {
+    display: inline-block;
+    background-color: rgba(11, 105, 168, 0.767);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: rgba(11, 105, 168, 0.418);
+    ;
+}
+
+/* Seções */
+section {
+    padding: 4rem 0;
+}
+
+section:nth-child(even) {
+    background-color: #f9f7f5;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 2rem;
+}
+
+/* Seção de Detalhes */
+.details-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.details-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(11, 105, 168, 0.418);
+    ;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.details-card i {
+    font-size: 3rem;
+    color: rgb(11, 105, 168);
+    ;
+    margin-bottom: 1rem;
+}
+
+.details-card h3 {
+    margin-bottom: 1rem;
+    color: #181818;
+}
+
+/* Contagem regressiva */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 120px;
+}
+
+.countdown-item span:first-child {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(11, 105, 168, 0.418);
+    ;
+    margin-bottom: 0.5rem;
+}
+
+/* Galeria */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    height: 200px;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+/* Formulário RSVP */
+#rsvp-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    /* Ajustes para o cabeçalho */
+    header {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Esconder a navegação principal */
+    .main-nav {
+        display: none;
+    }
+
+    /* Mostrar a barra de navegação inferior */
+    .bottom-nav {
+        display: block;
+    }
+
+    /* Ajuste no padding do body para acomodar a navbar */
+    body {
+        padding-bottom: 60px;
+    }
+
+    /* Ajustes para o Hero */
+    .hero-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text .date {
+        font-size: 1.4rem;
+    }
+
+    /* Ajustes para as seções */
+    section {
+        padding: 2rem 0;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Ajustes para detalhes */
+    .details-card {
+        min-width: 100%;
+    }
+
+    /* Ajustes para contagem regressiva */
+    .countdown-item {
+        min-width: 45%;
+    }
+
+    .countdown {
+        gap: 1rem;
+        /* Reduz o espaço entre os blocos */
+    }
+
+    .countdown-item {
+        padding: 0.5rem;
+        /* Menos preenchimento interno */
+        font-size: 1.2rem;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Ajustes para telas muito pequenas */
+    .hero-text {
+        max-width: 95%;
+        padding: 1rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+
+    /* .countdown-item {
+        min-width: 100%;
+        margin-bottom: 1rem;
+    } */
+
+    .countdown {
+        gap: 1rem;
+        /* Reduz o espaço entre os blocos */
+    }
+
+    .countdown-item {
+        padding: 0.5rem;
+        /* Menos preenchimento interno */
+        font-size: 1.2rem;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 1.6rem;
+    }
+}
+
+/* Carrossel Horizontal para Galeria */
+.horizontal-carousel-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-carousel {
+    display: flex;
+    align-items: center;
+    height: 400px
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scrollCarousel 15s linear infinite;
+    -webkit-animation: scrollCarousel 15s linear infinite;
+    /* Prefixo para Safari */
+    will-change: transform;
+    /* Otimiza a animação */
+    transform: translateZ(0);
+    /* Força aceleração de hardware */
+    -webkit-transform: translateZ(0);
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+.carousel-slide {
+    min-width: 300px;
+    height: 400px;
+    /* Ajustado para corresponder ao container */
+    flex-shrink: 0;
+    margin-right: 8px;
+    -webkit-backface-visibility: hidden;
+    /* Previne glitches no iOS */
+}
+
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-transform: translateZ(0);
+    /* Melhora a renderização no iOS */
+}
+
+
+.carousel-slide img:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+}
+
+/* Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image-modal img {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilos responsivos para o carrossel */
+@media (max-width: 768px) {
+
+    .horizontal-carousel {
+        height: 250px;
+    }
+
+    .carousel-slide {
+        height: 250px;
+        min-width: 250px;
+        /* Ajustado para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .horizontal-carousel {
+        height: 200px;
+    }
+
+    .carousel-slide {
+        height: 200px;
+        min-width: 200px;
+        /* Menor para melhor exibição em telas pequenas */
+    }
+
+    /* Reduz a velocidade da animação em telas menores */
+    .carousel-track {
+        animation-duration: 20s;
+        -webkit-animation-duration: 20s;
+    }
+}
+
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@-webkit-keyframes scrollCarousel {
+    0% {
+        -webkit-transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(-50%);
+    }
+}
+
+/* Controle de Música */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+}
+
+.music-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    background-color: rgba(11, 105, 168, 0.1);
+}
+
+.music-btn i {
+    margin-right: 8px;
+    color: rgba(11, 105, 168, 0.767);
+}
+
+.music-btn.playing i {
+    animation: pulse 1.5s infinite;
+}
+
+.music-status {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    .music-player {
+        bottom: 90px;
+        /* Aumentado para garantir espaço suficiente acima da barra de navegação */
+        right: 15px;
+    }
+
+    .music-btn {
+        padding: 8px 15px;
+    }
+
+    .music-status {
+        font-size: 12px;
+    }
+}
+
+/* Para telas muito pequenas, simplificar o botão */
+@media (max-width: 480px) {
+    .music-player {
+        bottom: 90px;
+        /* Aumentado para garantir espaço suficiente acima da barra de navegação */
+        right: 10px;
+    }
+
+    .music-btn {
+        padding: 8px 10px;
+        border-radius: 50%;
+        /* Forma circular */
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+    }
+
+    .music-btn i {
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .music-status {
+        display: none;
+        /* Esconde o texto em telas pequenas */
+    }
+}
+
+/* Animação para o ícone de música */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilos responsivos para o carrossel - Correção para Safari */
+@media (max-width: 768px) {
+    .horizontal-carousel {
+        height: 250px;
+    }
+
+    .carousel-slide {
+        height: 250px;
+        min-width: 250px;
+        /* Ajustado para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .horizontal-carousel {
+        height: 200px;
+    }
+
+    .carousel-slide {
+        height: 200px;
+        min-width: 200px;
+        /* Menor para melhor exibição em telas pequenas */
+    }
+
+    /* Reduz a velocidade da animação em telas menores */
+    .carousel-track {
+        animation-duration: 20s;
+        -webkit-animation-duration: 20s;
+    }
+}
+
+/* Correção específica para Safari */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        .horizontal-carousel-container {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: max-content;
+            animation: none !important;
+            -webkit-animation: none !important;
+            transform: none !important;
+            -webkit-transform: none !important;
+        }
+
+        .carousel-slide {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            margin-right: 10px;
+            pointer-events: auto;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        .carousel-slide img {
+            transform: none !important;
+            -webkit-transform: none !important;
+            transition: none !important;
+            -webkit-transition: none !important;
+        }
+    }
+}
+
+/* Correção específica para iOS */
+@supports (-webkit-touch-callout: none) {
+    .horizontal-carousel-container {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    .carousel-track {
+        display: flex;
+        width: max-content;
+        animation: none !important;
+        -webkit-animation: none !important;
+    }
+
+    .carousel-slide {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        margin-right: 10px;
+        pointer-events: auto;
+    }
+}

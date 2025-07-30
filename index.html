@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Casamento - Kim e Jeff</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Kimberly & Jefferson</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#detalhes">Detalhes</a></li>
+                <li><a href="#rsvp">Confirmar Presença</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="gifts.html">Presentes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Player de Música -->
+    <div class="music-player">
+        <audio id="background-music" loop>
+            <source src="assets/music/musica.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+        <button id="music-toggle" class="music-btn">
+            <i class="fas fa-music"></i>
+            <span class="music-status">Ativar Som</span>
+        </button>
+    </div>
+
+    <!-- Navegação Inferior (Mobile) -->
+    <nav class="bottom-nav">
+        <ul>
+            <li>
+                <a href="#inicio" class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+            </li>
+            <li>
+                <a href="#detalhes">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Detalhes</span>
+                </a>
+            </li>
+            <li>
+                <a href="gifts.html">
+                    <i class="fas fa-gift"></i>
+                    <span>Presentear</span>
+                </a>
+            </li>
+            <li>
+                <a href="#rsvp">
+                    <i class="fas fa-envelope"></i>
+                    <span>Confirmar Presença</span>
+                </a>
+            </li>
+            <li>
+                <a href="#galeria">
+                    <i class="fas fa-images"></i>
+                    <span>Galeria</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção Início -->
+        <section id="inicio" class="hero">
+            <div class="hero-text">
+                <h1>Convidamos você para celebrar o</h1>
+                <h2>Nosso Casamento</h2>
+                <p class="date">13 de Setembro de 2025</p>
+                <p class="location">Indaiá Eventos - Blumenau</p>
+                <a href="#rsvp" class="btn-primary">Confirmar Presença</a>
+            </div>
+        </section>
+
+        <!-- Seção Detalhes -->
+        <section id="detalhes" class="details-section">
+            <div class="container-details">
+                <h2>Detalhes do Evento</h2>
+                <div class="details-cards">
+                    <div class="details-card">
+                        <i class="fas fa-door-open"></i>
+                        <h3>Recepção</h3>
+                        <p>13 de Setembro de 2025 - 16h30</p>
+                        <p>Indaiá Eventos - Blumenau</p>
+                    </div>
+                    <div class="details-card">
+                        <i class="fas fa-church"></i>
+                        <h3>Cerimônia</h3>
+                        <p>13 de Setembro de 2025 - 17h00</p>
+                        <p>Indaiá Eventos - Blumenau</p>
+                    </div>
+                    <div class="details-card">
+                        <i class="fas fa-glass-cheers"></i>
+                        <h3>Jantar</h3>
+                        <p>13 de Setembro de 2025 - 18h30</p>
+                        <p>Indaiá Eventos - Blumenau</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contagem Regressiva -->
+        <section class="countdown-section">
+            <div class="container-details">
+                <h2>Contagem Regressiva</h2>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <span>Dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span>Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span>Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span>Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Galeria -->
+        <section id="galeria" class="gallery-section">
+            <div class="container">
+                <h2>Nossa Galeria</h2>
+                <div class="horizontal-carousel-container">
+                    <div class="horizontal-carousel">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <img src="assets/images/7.webp" alt="Foto do casal 1" loading="lazy" class="zoomable">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/8.webp" alt="Foto do casal 2" loading="lazy" class="zoomable">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/9.webp" alt="Foto do casal 3" loading="lazy" class="zoomable">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/10.webp" alt="Foto do casal 4" loading="lazy" class="zoomable">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/11.webp" alt="Foto do casal 5" loading="lazy" class="zoomable">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/12.webp" alt="Foto do casal 6" loading="lazy" class="zoomable">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="image-modal" class="image-modal">
+                    <span class="close-modal">&times;</span>
+                    <img class="modal-content" id="modal-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção RSVP -->
+        <section id="rsvp" class="rsvp-section">
+            <div class="container-details">
+                <h2>Confirme sua Presença</h2>
+                <form id="rsvp-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Você irá comparecer?</label>
+                        <div class="radio-group">
+                            <input type="radio" id="yes" name="attendance" value="yes" checked>
+                            <label for="yes">Sim</label>
+                            <input type="radio" id="no" name="attendance" value="no">
+                            <label for="no">Não</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Casamento de Jeff e Kim. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="music-player.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "SUA_API_KEY",
+            authDomain: "seu-projeto.firebaseapp.com",
+            projectId: "seu-projeto",
+            storageBucket: "seu-projeto.appspot.com",
+            messagingSenderId: "seu-messaging-id",
+            appId: "seu-app-id"
+        };
+
+        // Inicializar Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+</body>
+
+</html>
