@@ -222,7 +222,7 @@ header h1 {
 /* ================ HERO SECTION ================ */
 .hero {
 	height: 100vh;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), var(--primary-lighter)), url('assets/images_originais/47.jpg');
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), var(--primary-lighter)), url('assets/images/47.webp');
 	background-size: cover;
 	background-position: center;
 	display: flex;
@@ -371,11 +371,8 @@ section h2 {
 	overflow: hidden;
 	width: 100%;
 	position: relative;
-	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
-	/* para Safari iOS */
 	scroll-behavior: smooth;
-	scroll-snap-type: x mandatory;
 }
 
 .horizontal-carousel {
@@ -712,47 +709,10 @@ footer {
 	}
 }
 
-/* ================ COMPATIBILIDADE COM SAFARI E iOS ================ */
-@media not all and (min-resolution:.001dpcm) {
-	@supports (-webkit-appearance:none) {
-		.horizontal-carousel-container {
-			overflow-x: auto;
-			-webkit-overflow-scrolling: touch;
-			/* para Safari iOS */
-			scroll-behavior: smooth;
-			scroll-snap-type: x mandatory;
-		}
-
-		.carousel-track {
-			display: flex;
-			width: max-content;
-			animation: none !important;
-			transform: none !important;
-		}
-
-		.carousel-slide {
-			flex: 0 0 auto;
-			scroll-snap-align: center;
-			margin-right: 10px;
-			pointer-events: auto;
-			-webkit-user-select: none;
-			user-select: none;
-			-webkit-touch-callout: none;
-		}
-
-		.carousel-slide img {
-			transform: none !important;
-			transition: none !important;
-		}
-	}
-}
-
+/* Para Safari Mobile */
 @supports (-webkit-touch-callout: none) {
 	.horizontal-carousel-container {
 		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
-		/* para Safari iOS */
-		scroll-behavior: smooth;
 		scroll-snap-type: x mandatory;
 	}
 
@@ -760,13 +720,16 @@ footer {
 		display: flex;
 		width: max-content;
 		animation: none !important;
+		transform: none !important;
 	}
 
 	.carousel-slide {
 		flex: 0 0 auto;
-		scroll-snap-align: center;
-		margin-right: 10px;
+		scroll-snap-align: start;
+		margin-right: 8px;
 		pointer-events: auto;
+		min-width: 300px;
+		height: 400px;
 	}
 }
 
