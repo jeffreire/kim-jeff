@@ -1,4 +1,3 @@
-
 /* Estilos para a página de presentes */
 .gift-categories {
     display: flex;
@@ -7,6 +6,7 @@
     margin-bottom: 2rem;
     gap: 10px;
 }
+
 
 .category-btn {
     background-color: #f9f7f5;
@@ -18,7 +18,8 @@
     transition: all 0.3s;
 }
 
-.category-btn:hover, .category-btn.active {
+.category-btn:hover,
+.category-btn.active {
     background-color: rgba(11, 105, 168, 0.418);
     color: white;
 }
@@ -180,19 +181,19 @@
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 1rem;
     }
-    
+
     .gift-image {
         height: 160px;
     }
-    
+
     .gift-info {
         padding: 1rem;
     }
-    
+
     .gift-info h3 {
         font-size: 1rem;
     }
-    
+
     .gift-price {
         font-size: 1rem;
         margin-bottom: 0.8rem;
@@ -204,16 +205,16 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
     }
-    
+
     .gift-image {
         height: 140px;
     }
-    
+
     .category-btn {
         padding: 6px 12px;
         font-size: 0.9rem;
     }
-    
+
     .gift-categories {
         gap: 5px;
         margin-bottom: 1.5rem;
@@ -225,15 +226,15 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 0.6rem;
     }
-    
+
     .gift-image {
         height: 120px;
     }
-    
+
     .gift-info {
         padding: 0.8rem;
     }
-    
+
     .gift-btn {
         padding: 6px 10px;
         font-size: 0.9rem;
@@ -245,6 +246,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -256,12 +258,29 @@
 }
 
 /* Efeito cascata para os cards aparecerem sequencialmente */
-.gift-item:nth-child(1) { animation-delay: 0.1s; }
-.gift-item:nth-child(2) { animation-delay: 0.2s; }
-.gift-item:nth-child(3) { animation-delay: 0.3s; }
-.gift-item:nth-child(4) { animation-delay: 0.4s; }
-.gift-item:nth-child(5) { animation-delay: 0.5s; }
-.gift-item:nth-child(6) { animation-delay: 0.6s; }
+.gift-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gift-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gift-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.gift-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.gift-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.gift-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
 
 
 /* Animação para transição suave entre categorias */
@@ -302,6 +321,7 @@
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -318,6 +338,7 @@
         opacity: 0;
         transform: translateX(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -328,10 +349,21 @@
     animation: formFieldFadeIn 0.4s ease-out backwards;
 }
 
-.gift-form-group:nth-child(1) { animation-delay: 0.1s; }
-.gift-form-group:nth-child(2) { animation-delay: 0.2s; }
-.gift-form-group:nth-child(3) { animation-delay: 0.3s; }
-.gift-form-group:nth-child(4) { animation-delay: 0.4s; }
+.gift-form-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.gift-form-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gift-form-group:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.gift-form-group:nth-child(4) {
+    animation-delay: 0.4s;
+}
 
 
 /* Animação para o ícone do PIX */
@@ -340,10 +372,12 @@
         transform: scale(1);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.05);
         opacity: 0.8;
     }
+
     100% {
         transform: scale(1);
         opacity: 1;
@@ -359,9 +393,11 @@
     0% {
         background-color: rgba(11, 105, 168, 0.418);
     }
+
     50% {
         background-color: #4CAF50;
     }
+
     100% {
         background-color: rgba(11, 105, 168, 0.418);
     }
@@ -377,6 +413,7 @@
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

@@ -9,8 +9,9 @@
 	--shadow-light: 0 2px 10px rgba(11, 105, 168, 0.418);
 	--shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.1);
 	--border-radius: 10px;
-	--font-primary: 'Times New Roman', serif;
-	--font-title: 'AlmaraDemo', cursive;
+	--font-primary: 'Lato', sans-serif;
+	--font-title: "Dancing Script", cursive;
+	/* For thinner appearance, use with font-weight: 300 */
 	--font-subtitle: 'AlmaraDemo', serif;
 	--transition-standard: all 0.3s ease;
 	--spacing-standard: 2rem;
@@ -43,8 +44,17 @@ body {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: var(--spacing-standard) 0;
-	/* font-family: var(--font-title); */
+	font-family: var(--font-primary);
 }
+
+.container-details h2 {
+	font-family: var(--font-title);
+	font-size: 2.5rem;
+	color: var(--text-dark);
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
 
 #title {
 	font-family: var(--font-primary);
@@ -53,6 +63,7 @@ body {
 	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 	margin-bottom: 1rem;
 	letter-spacing: 1px;
+	font-weight: 200;
 }
 
 #names {
@@ -63,6 +74,7 @@ body {
 	margin-bottom: 1rem;
 	/* letter-spacing: 1px; */
 	font-weight: normal;
+	font-weight: 200;
 }
 
 #sub-title-gift {
@@ -144,6 +156,7 @@ header h1 {
 	color: var(--text-light);
 	text-align: center;
 	margin: 0 auto;
+	font-weight: 500;
 }
 
 .header-hidden {
@@ -245,7 +258,7 @@ header h1 {
 }
 
 .hero-text h2 {
-	font-family: var(--font-subtitle);
+	font-family: var(--font-title);
 	font-size: 5.5rem;
 	margin-bottom: 1rem;
 	color: var(--text-dark);
@@ -331,6 +344,7 @@ section h2 {
 	justify-content: center;
 	gap: 2rem;
 	flex-wrap: wrap;
+	font-family: var(--font-primary);
 }
 
 .countdown-item {
@@ -355,6 +369,10 @@ section h2 {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 1rem;
+}
+
+.gallery-section h2 {
+	font-family: var(--font-title);
 }
 
 .gallery-item {
@@ -820,5 +838,480 @@ footer {
 
 	.countdown-item span:first-child {
 		font-size: 1.6rem;
+	}
+}
+
+/* ================ TIMELINE SOFISTICADA - LADO ÚNICO ================ */
+.timeline-section {
+	padding: 6rem 0;
+	background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f4 100%);
+	position: relative;
+	overflow: hidden;
+}
+
+.timeline-section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23000" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23000" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+	pointer-events: none;
+}
+
+.section-header {
+	text-align: center;
+	margin-bottom: 4rem;
+	position: relative;
+	z-index: 2;
+}
+
+.section-header h2 {
+	font-family: var(--font-title);
+	font-size: 3.5rem;
+	color: var(--primary-color);
+	margin-bottom: 1rem;
+	position: relative;
+	display: inline-block;
+}
+
+.section-header h2::before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40px;
+	height: 4px;
+	background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+	border-radius: 2px;
+}
+
+.section-header h2::after {
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80px;
+	height: 2px;
+	background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.section-subtitle {
+	font-family: var(--font-primary);
+	font-size: 1.2rem;
+	color: var(--text-medium);
+	font-style: italic;
+	max-width: 500px;
+	margin: 0 auto;
+	line-height: 1.6;
+}
+
+.timeline {
+	position: relative;
+	max-width: 900px;
+	margin: 0 auto 4rem;
+	padding: 3rem 0;
+}
+
+.timeline::before {
+	content: '';
+	position: absolute;
+	left: 80px;
+	/* Posicionado à esquerda para linha vertical */
+	top: 0;
+	bottom: 0;
+	width: 4px;
+	background: linear-gradient(to bottom,
+			transparent 0%,
+			var(--primary-lighter) 10%,
+			var(--primary-color) 50%,
+			var(--primary-lighter) 90%,
+			transparent 100%);
+	border-radius: 2px;
+	box-shadow: 0 0 20px rgba(11, 105, 168, 0.3);
+}
+
+.timeline-item {
+	position: relative;
+	margin-bottom: 4rem;
+	display: flex;
+	align-items: center;
+	opacity: 0;
+	transform: translateY(50px);
+	animation: timelineSlideUp 0.8s ease forwards;
+	/* Todos os itens do mesmo lado (direita) */
+	flex-direction: row;
+}
+
+.timeline-item:nth-child(1) {
+	animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(2) {
+	animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+.timeline-item:nth-child(4) {
+	animation-delay: 0.8s;
+}
+
+@keyframes timelineSlideUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.timeline-marker {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	background: white;
+	border-radius: 50%;
+	border: 4px solid var(--primary-color);
+	box-shadow: 0 0 0 8px rgba(11, 105, 168, 0.1), 0 8px 30px rgba(0, 0, 0, 0.15);
+	z-index: 3;
+	margin-left: 50px;
+	/* Posicionamento fixo à esquerda */
+	margin-right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.4s ease;
+	flex-shrink: 0;
+}
+
+.timeline-marker:hover {
+	transform: scale(1.1);
+	box-shadow: 0 0 0 12px rgba(11, 105, 168, 0.15), 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-marker.highlight {
+	width: 80px;
+	height: 80px;
+	background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+	border: 6px solid white;
+	margin-left: 40px;
+	/* Ajuste para o marcador maior */
+	box-shadow:
+		0 0 0 4px var(--primary-color),
+		0 0 0 12px rgba(11, 105, 168, 0.2),
+		0 0 30px rgba(11, 105, 168, 0.4),
+		0 15px 50px rgba(0, 0, 0, 0.2);
+	animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+	0% {
+		box-shadow:
+			0 0 0 4px var(--primary-color),
+			0 0 0 12px rgba(11, 105, 168, 0.2),
+			0 0 30px rgba(11, 105, 168, 0.4),
+			0 15px 50px rgba(0, 0, 0, 0.2);
+	}
+
+	100% {
+		box-shadow:
+			0 0 0 4px var(--primary-color),
+			0 0 0 16px rgba(11, 105, 168, 0.3),
+			0 0 40px rgba(11, 105, 168, 0.6),
+			0 20px 60px rgba(0, 0, 0, 0.25);
+	}
+}
+
+.timeline-icon {
+	font-size: 1.5rem;
+	color: var(--primary-color);
+}
+
+.timeline-marker.highlight .timeline-icon {
+	font-size: 2rem;
+	color: white;
+}
+
+.timeline-content {
+	background: white;
+	padding: 2.5rem;
+	border-radius: 20px;
+	box-shadow:
+		0 10px 40px rgba(0, 0, 0, 0.1),
+		0 0 0 1px rgba(11, 105, 168, 0.05);
+	width: calc(100% - 200px);
+	/* Largura ajustada */
+	margin-left: 3rem;
+	/* Espaçamento do marcador */
+	position: relative;
+	transition: all 0.4s ease;
+	backdrop-filter: blur(10px);
+}
+
+.timeline-content:hover {
+	transform: translateY(-8px);
+	box-shadow:
+		0 20px 60px rgba(0, 0, 0, 0.15),
+		0 0 0 1px rgba(11, 105, 168, 0.1);
+}
+
+.timeline-item.highlight .timeline-content {
+	background: linear-gradient(135deg, white 0%, rgba(11, 105, 168, 0.02) 100%);
+	border: 2px solid rgba(11, 105, 168, 0.1);
+}
+
+/* Seta sempre do lado esquerdo (todos os itens do mesmo lado) */
+.timeline-content::after {
+	content: '';
+	position: absolute;
+	left: -15px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 0;
+	height: 0;
+	border-right: 15px solid white;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	filter: drop-shadow(-2px 0 5px rgba(0, 0, 0, 0.1));
+}
+
+.timeline-time {
+	display: inline-block;
+	background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+	color: white;
+	padding: 0.5rem 1.2rem;
+	border-radius: 25px;
+	font-family: var(--font-primary);
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 1rem;
+	letter-spacing: 1px;
+	box-shadow: 0 4px 15px rgba(11, 105, 168, 0.3);
+}
+
+.timeline-content h3 {
+	font-family: var(--font-title);
+	font-size: 1.8rem;
+	color: var(--text-dark);
+	margin-bottom: 0.8rem;
+	line-height: 1.3;
+}
+
+.timeline-content p {
+	color: var(--text-medium);
+	font-size: 1.1rem;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+}
+
+.timeline-details {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.detail-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: rgba(11, 105, 168, 0.1);
+	padding: 0.5rem 1rem;
+	border-radius: 20px;
+	font-size: 0.9rem;
+	color: var(--primary-color);
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+	background: var(--primary-color);
+	color: white;
+	transform: translateY(-2px);
+}
+
+.detail-item i {
+	font-size: 0.8rem;
+}
+
+/* ================ INFORMAÇÕES DO LOCAL APRIMORADAS ================ */
+.venue-info {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.venue-card {
+	background: white;
+	padding: 0;
+	border-radius: 25px;
+	box-shadow:
+		0 20px 60px rgba(0, 0, 0, 0.1),
+		0 0 0 1px rgba(11, 105, 168, 0.05);
+	display: flex;
+	overflow: hidden;
+	transition: all 0.4s ease;
+}
+
+.venue-card:hover {
+	transform: translateY(-10px);
+	box-shadow:
+		0 30px 80px rgba(0, 0, 0, 0.15),
+		0 0 0 1px rgba(11, 105, 168, 0.1);
+}
+
+.venue-image {
+	flex: 0 0 40%;
+	position: relative;
+	overflow: hidden;
+}
+
+.venue-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.4s ease;
+}
+
+.venue-card:hover .venue-image img {
+	transform: scale(1.05);
+}
+
+.venue-details {
+	flex: 1;
+	padding: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.venue-details h4 {
+	font-family: var(--font-title);
+	font-size: 1.8rem;
+	color: var(--text-dark);
+	margin-bottom: 0.5rem;
+}
+
+.venue-details p {
+	color: var(--text-medium);
+	margin-bottom: 1.5rem;
+	font-size: 1.1rem;
+}
+
+.venue-features {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	margin-bottom: 2rem;
+}
+
+.venue-features span {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	color: var(--text-medium);
+	font-size: 0.95rem;
+}
+
+.venue-features i {
+	color: var(--primary-color);
+	width: 20px;
+}
+
+.btn-secondary {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.8rem;
+	background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+	color: white;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	border-radius: 30px;
+	font-size: 1rem;
+	font-weight: bold;
+	transition: all 0.3s ease;
+	align-self: flex-start;
+	box-shadow: 0 8px 25px rgba(11, 105, 168, 0.3);
+}
+
+.btn-secondary:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 35px rgba(11, 105, 168, 0.4);
+}
+
+/* ================ RESPONSIVIDADE TIMELINE APRIMORADA ================ */
+@media (max-width: 768px) {
+	.timeline-section {
+		padding: 4rem 0;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+	}
+
+	.timeline::before {
+		left: 40px;
+	}
+
+	.timeline-marker {
+		margin-left: 10px;
+		width: 50px;
+		height: 50px;
+	}
+
+	.timeline-marker.highlight {
+		width: 60px;
+		height: 60px;
+		margin-left: 5px;
+	}
+
+	.timeline-content {
+		width: calc(100% - 120px);
+		margin-left: 2rem;
+		padding: 2rem;
+	}
+
+	.venue-card {
+		flex-direction: column;
+	}
+
+	.venue-image {
+		flex: 0 0 200px;
+	}
+
+	.venue-details {
+		padding: 2rem;
+	}
+
+	.venue-features {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.section-header h2 {
+		font-size: 2rem;
+	}
+
+	.timeline-content {
+		padding: 1.5rem;
+		width: calc(100% - 100px);
+	}
+
+	.timeline-content h3 {
+		font-size: 1.4rem;
+	}
+
+	.detail-item {
+		font-size: 0.8rem;
+		padding: 0.4rem 0.8rem;
+	}
+
+	.venue-details {
+		padding: 1.5rem;
 	}
 }
