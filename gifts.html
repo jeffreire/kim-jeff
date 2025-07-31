@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="gifts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
 </head>
@@ -46,8 +48,8 @@
         <div class="hero-text fade-in">
             <h2 id="title">Lista de Presentes</h2>
             <p id="names">Kimberly & Jefferson</p>
-            <p id="sub-title-gift">Sua presença é o nosso maior presente, mas se ainda assim você quiser nos dar algo,
-                abaixo estão algumas sugestões:
+            <p id="sub-title-gift">Sua presença é o nosso maior presente, mas se ainda assim você desejar nos dar algo
+                material, abaixo estão algumas sugestões:
             </p>
         </div>
     </section>
@@ -60,7 +62,8 @@
                 <div class="details-card slide-up">
                     <i class="fas fa-gift"></i>
                     <h3>Escolha um Presente</h3>
-                    <p>Navegue pelos itens da nossa lista e escolha o que mais combina com você.</p>
+                    <p>Navegue pelos itens da lista e escolha um presente que gostaria de nos dar ou contribua
+                        parcialmente com o valor.</p>
                 </div>
                 <div class="details-card slide-up">
                     <i class="fas fa-credit-card"></i>
@@ -86,8 +89,9 @@
                 <button class="category-btn active" data-category="all">Todos</button>
                 <button class="category-btn" data-category="home">Casa</button>
                 <button class="category-btn" data-category="appliances">Eletrodomésticos</button>
-                <button class="category-btn" data-category="decor">Decoração</button>
+                <button class="category-btn" data-category="cozinha">Cozinha</button>
                 <button class="category-btn" data-category="experience">Experiências</button>
+                <button class="category-btn" data-category="outros">Outros</button>
             </div>
 
             <!-- Grid de Presentes -->
@@ -114,38 +118,77 @@
                         <button class="btn-primary gift-btn">Presentear</button>
                     </div>
                 </div>
+                <div class="gift-item" data-category="home">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/cortina.png" alt="Cortina">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Cortina para Sala</h3>
+                        <p class="gift-price">R$ 349,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+                <div class="gift-item" data-category="home">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/luminaria.png" alt="Reforma do apartamento">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Reforma do apartamento</h3>
+                        <p class="gift-price">R$ 480,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
 
                 <!-- Eletrodomésticos -->
                 <div class="gift-item" data-category="appliances">
                     <div class="gift-image">
-                        <img src="assets/images/gifts/mixer.png" alt="Mixer">
+                        <img src="assets/images/gifts/airfryer.png" alt="Air Fryer">
                     </div>
                     <div class="gift-info">
-                        <h3>Mixer de Cozinha</h3>
+                        <h3>Air Fryer</h3>
                         <p class="gift-price">R$ 299,00</p>
                         <button class="btn-primary gift-btn">Presentear</button>
                     </div>
                 </div>
-
                 <div class="gift-item" data-category="appliances">
                     <div class="gift-image">
-                        <img src="assets/images/gifts/cafeteira.png" alt="Cafeteira">
+                        <img src="assets/images/gifts/forninho.png" alt="Forninho Elétrico">
                     </div>
                     <div class="gift-info">
-                        <h3>Cafeteira Elétrica</h3>
-                        <p class="gift-price">R$ 450,00</p>
+                        <h3>Forninho Elétrico</h3>
+                        <p class="gift-price">R$ 599,00</p>
                         <button class="btn-primary gift-btn">Presentear</button>
                     </div>
                 </div>
 
-                <!-- Decoração -->
-                <div class="gift-item" data-category="decor">
+                <!-- cozinha -->
+                <div class="gift-item" data-category="cozinha">
                     <div class="gift-image">
-                        <img src="assets/images/gifts/luminaria.png" alt="Luminária">
+                        <img src="assets/images/gifts/liquidificador.png" alt="Liquidificador">
                     </div>
                     <div class="gift-info">
-                        <h3>Luminária de Mesa</h3>
-                        <p class="gift-price">R$ 180,00</p>
+                        <h3>Liquidificador</h3>
+                        <p class="gift-price">R$ 99,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+                <div class="gift-item" data-category="cozinha">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/itens-de-cozinha.png" alt="Itens de Cozinha">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Itens de Cozinha</h3>
+                        <p class="gift-price">R$ 149,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+                <div class="gift-item" data-category="cozinha">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/faqueiro.png" alt="Faqueiro">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Faqueiro</h3>
+                        <p class="gift-price">R$ 199,00</p>
                         <button class="btn-primary gift-btn">Presentear</button>
                     </div>
                 </div>
@@ -156,9 +199,30 @@
                         <img src="assets/images/gifts/lua-de-mel.png" alt="Lua de Mel">
                     </div>
                     <div class="gift-info">
-                        <h3>Contribuição para Lua de Mel</h3>
-                        <p class="gift-price">Valor livre</p>
-                        <button class="btn-primary gift-btn">Contribuir</button>
+                        <h3>Lua de Mel</h3>
+                        <p class="gift-price">R$ 550,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+                <!-- outros -->
+                <div class="gift-item" data-category="outros">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/alianca.png" alt="Aliança">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Aliança</h3>
+                        <p class="gift-price">R$ 750,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
+                    </div>
+                </div>
+                <div class="gift-item" data-category="outros">
+                    <div class="gift-image">
+                        <img src="assets/images/gifts/setup.png" alt="Setup para nosso futuro filho">
+                    </div>
+                    <div class="gift-info">
+                        <h3>Setup para nosso futuro filho</h3>
+                        <p class="gift-price">R$ 950,00</p>
+                        <button class="btn-primary gift-btn">Presentear</button>
                     </div>
                 </div>
             </div>
