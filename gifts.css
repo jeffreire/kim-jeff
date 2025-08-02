@@ -427,3 +427,151 @@
 .scroll-animate.active {
     animation: fadeInOnScroll 0.8s forwards;
 }
+
+/* Estilos para as instruções de PIX */
+.pix-instructions {
+    padding: 25px;
+    text-align: center;
+}
+
+.pix-instructions h3 {
+    color: rgba(11, 105, 168, 0.9);
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.pix-instructions .gift-selected {
+    text-align: left;
+    background: #fff;
+    border: 1px solid rgba(11, 105, 168, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pix-instructions p strong {
+    color: rgba(11, 105, 168, 0.9);
+    font-weight: 600;
+}
+
+.pix-info {
+    background: #f9f7f5;
+    border: 2px solid rgba(11, 105, 168, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(11, 105, 168, 0.1);
+}
+
+.pix-info h4 {
+    color: rgba(11, 105, 168, 0.9);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.pix-key-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pix-key {
+    background: #ffffff;
+    border: 2px dashed rgba(11, 105, 168, 0.6);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 1rem;
+    color: rgba(11, 105, 168, 0.9);
+    font-weight: bold;
+    word-break: break-all;
+}
+
+.copy-pix {
+    background: rgba(11, 105, 168, 0.418);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.copy-pix:hover {
+    background: rgba(11, 105, 168, 0.767);
+    transform: translateY(-2px);
+}
+
+.pix-instructions-text {
+    text-align: left;
+    background: #fff;
+    border: 1px solid rgba(11, 105, 168, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pix-instructions-text h4 {
+    color: rgba(11, 105, 168, 0.9);
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.pix-instructions-text ol {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.pix-instructions-text li {
+    margin: 8px 0;
+    color: #555;
+}
+
+.close-instructions {
+    background: rgba(11, 105, 168, 0.767);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.close-instructions:hover {
+    background: rgba(11, 105, 168, 0.9);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .pix-key-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pix-key {
+        width: 100%;
+        text-align: center;
+    }
+
+    .copy-pix {
+        width: 100%;
+    }
+
+    .pix-instructions {
+        padding: 15px;
+    }
+
+    .pix-info {
+        padding: 15px;
+    }
+}
