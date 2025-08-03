@@ -315,14 +315,13 @@
     <script>
         // Configuração do Firebase usando variáveis de ambiente
         const firebaseConfig = {
-            apiKey: window.ENV.FIREBASE_API_KEY,
-            authDomain: window.ENV.FIREBASE_AUTH_DOMAIN,
-            projectId: window.ENV.FIREBASE_PROJECT_ID,
-            storageBucket: window.ENV.FIREBASE_STORAGE_BUCKET,
-            messagingSenderId: window.ENV.FIREBASE_MESSAGING_SENDER_ID,
-            appId: window.ENV.FIREBASE_APP_ID
+            apiKey: window.ENV.FIREBASE_API_KEY.replace(/^['"]|['"]$/g, ''),
+            authDomain: window.ENV.FIREBASE_AUTH_DOMAIN.replace(/^['"]|['"]$/g, ''),
+            projectId: window.ENV.FIREBASE_PROJECT_ID.replace(/^['"]|['"]$/g, ''),
+            storageBucket: window.ENV.FIREBASE_STORAGE_BUCKET.replace(/^['"]|['"]$/g, ''),
+            messagingSenderId: window.ENV.FIREBASE_MESSAGING_SENDER_ID.replace(/^['"]|['"]$/g, ''),
+            appId: window.ENV.FIREBASE_APP_ID.replace(/^['"]|['"]$/g, '')
         };
-
         // Inicializar Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
