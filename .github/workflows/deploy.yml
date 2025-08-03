@@ -36,11 +36,11 @@ jobs:
           echo "    FIREBASE_APP_ID: '${{ secrets.FIREBASE_APP_ID }}'" >> env.js
           echo "};" >> env.js
 
-      - name: Debug - Show final env.js
+      - name: Debug - Show raw secrets (PROJECT_ID only)
         run: |
-          echo "=== env.js FINAL ==="
-          cat env.js
-          echo "==================="
+          echo "Raw PROJECT_ID secret value:"
+          echo "${{ secrets.FIREBASE_PROJECT_ID }}" | cat -v
+          echo "Length: $(echo -n '${{ secrets.FIREBASE_PROJECT_ID }}' | wc -c)"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
