@@ -575,3 +575,35 @@
         padding: 15px;
     }
 }
+
+/* Mensagem de agradecimento */
+.thank-you-message {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.thank-you-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e91e63, #f06292);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+.thank-you-message h3 {
+    color: #e91e63;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.thank-you-message p {
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}

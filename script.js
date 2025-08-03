@@ -47,14 +47,126 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // === FORMULÁRIO RSVP ===
+    // === FORMULÁRIO RSVP
     const rsvpForm = document.getElementById('rsvp-form');
     if (rsvpForm) {
-        rsvpForm.addEventListener('submit', function (e) {
+        rsvpForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            alert('Presença confirmada! Obrigado por nos responder.');
-            rsvpForm.reset();
+
+            // Pegar os dados do formulário
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const attendance = formData.get('attendance');
+
+            if (!name || !attendance) {
+                showCustomAlert('Por favor, preencha todos os campos.', 'warning');
+                return;
+            }
+
+            // Desabilitar o botão de envio
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            submitButton.style.opacity = '0.7';
+
+            try {
+                // Verificar se Firebase está disponível
+                if (typeof db === 'undefined') {
+                    throw new Error('Firebase não está inicializado');
+                }
+
+                // Salvar no Firebase Firestore
+                await db.collection('rsvp').add({
+                    nome: name,
+                    presenca: attendance === 'yes' ? 'Sim' : 'Não',
+                    dataConfirmacao: firebase.firestore.FieldValue.serverTimestamp(),
+                    ip: await getClientIP()
+                });
+
+                // Sucesso com mensagem elegante
+                showCustomAlert(
+                    `Obrigado, ${name}! Sua confirmação foi enviada com sucesso.`,
+                    'success',
+                    attendance === 'yes' ? 'Mal podemos esperar para celebrar com você!' : 'Sentiremos sua falta, mas entendemos.'
+                );
+                this.reset();
+
+            } catch (error) {
+                console.error('Erro ao salvar confirmação:', error);
+                showCustomAlert('Ops! Algo deu errado. Por favor, tente novamente.', 'error');
+            } finally {
+                // Reabilitar o botão
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+                submitButton.style.opacity = '1';
+            }
         });
+    }
+    // Função para mostrar alertas customizados elegantes
+    function showCustomAlert(message, type = 'info', subtitle = '') {
+        // Remover alerta anterior se existir
+        const existingAlert = document.querySelector('.custom-alert');
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+
+        // Criar elementos do alerta
+        const alertOverlay = document.createElement('div');
+        alertOverlay.className = 'custom-alert-overlay';
+
+        const alertBox = document.createElement('div');
+        alertBox.className = `custom-alert custom-alert-${type}`;
+
+        // Ícone baseado no tipo
+        const icons = {
+            success: 'fas fa-heart',
+            error: 'fas fa-exclamation-triangle',
+            warning: 'fas fa-exclamation-circle',
+            info: 'fas fa-info-circle'
+        };
+
+        alertBox.innerHTML = `
+        <div class="custom-alert-content">
+            <div class="custom-alert-icon">
+                <i class="${icons[type]}"></i>
+            </div>
+            <div class="custom-alert-text">
+                <h3>${message}</h3>
+                ${subtitle ? `<p>${subtitle}</p>` : ''}
+            </div>
+            <button class="custom-alert-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `;
+
+        alertOverlay.appendChild(alertBox);
+        document.body.appendChild(alertOverlay);
+
+        // Adicionar animação de entrada
+        setTimeout(() => {
+            alertOverlay.classList.add('show');
+        }, 10);
+
+        // Fechar o alerta
+        const closeAlert = () => {
+            alertOverlay.classList.remove('show');
+            setTimeout(() => {
+                alertOverlay.remove();
+            }, 300);
+        };
+
+        // Event listeners para fechar
+        alertBox.querySelector('.custom-alert-close').addEventListener('click', closeAlert);
+        alertOverlay.addEventListener('click', (e) => {
+            if (e.target === alertOverlay) closeAlert();
+        });
+
+        // Auto fechar após 5 segundos para mensagens de sucesso
+        if (type === 'success') {
+            setTimeout(closeAlert, 5000);
+        }
     }
 
     // === CARROSSEL ===
@@ -239,49 +351,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Verificar elementos visíveis ao rolar
     window.addEventListener('scroll', handleScrollAnimation);
 
-    // const backgroundMusic = document.getElementById('background-music');
-    // const musicToggle = document.getElementById('music-toggle');
-    // const musicStatus = document.querySelector('.music-status');
-
-    // // Iniciar com o status correto
-    // let isMuted = true;
-    // musicToggle.classList.add('playing');
-
-    // // Função para alternar o som
-    // function toggleSound() {
-    //     if (isMuted) {
-    //         // Ativar o som
-    //         backgroundMusic.muted = false;
-    //         musicStatus.textContent = 'Pausar Música';
-
-    //         // Garantir que está tocando
-    //         backgroundMusic.play().catch(error => {
-    //             console.log('Não foi possível iniciar a reprodução:', error);
-    //             backgroundMusic.muted = true;
-    //             musicStatus.textContent = 'Ativar Som';
-    //             isMuted = true;
-    //         });
-    //     } else {
-    //         // Desativar o som (mas continuar tocando)
-    //         backgroundMusic.muted = true;
-    //         musicStatus.textContent = 'Ativar Som';
-    //     }
-
-    //     isMuted = !isMuted;
-    // }
-
-    // // Adicionar event listener ao botão
-    // if (musicToggle) {
-    //     musicToggle.addEventListener('click', toggleSound);
-    // }
-
-    // // Tentar tocar automaticamente (mesmo que mudo)
-    // if (backgroundMusic) {
-    //     // Atraso para garantir que o navegador está pronto
-    //     setTimeout(() => {
-    //         backgroundMusic.play().catch(error => {
-    //             console.log('Reprodução automática bloqueada:', error);
-    //         });
-    //     }, 1000);
-    // }
 });
+
+async function getClientIP() {
+    try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        return data.ip;
+    } catch (error) {
+        return 'Não disponível';
+    }
+}

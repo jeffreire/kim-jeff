@@ -70,13 +70,35 @@ document.addEventListener('DOMContentLoaded', function () {
             modal.style.display = 'block';
 
             // Adicionar event listener para o formulário
-            document.getElementById('gift-payment-form').addEventListener('submit', function (e) {
+            document.getElementById('gift-payment-form').addEventListener('submit', async function (e) {
                 e.preventDefault();
 
                 // Pegar os dados do formulário
                 const giftName = document.querySelector('.gift-selected h3').textContent;
                 const userName = document.getElementById('gift-name').value;
                 const giftAmount = document.getElementById('gift-amount') ? document.getElementById('gift-amount').value : null;
+                // Validações básicas
+                if (!userName) {
+                    alert('Por favor, preencha seu nome.');
+                    return;
+                }
+
+                try {
+                    // Salvar no Firebase
+                    await db.collection('presentes').add({
+                        presente: giftName,
+                        nomeComprador: userName,
+                        isContribuicao: !!giftAmount,
+                        precoOriginal: giftPrice,
+                        dataCompra: firebase.firestore.FieldValue.serverTimestamp(),
+                        status: 'pendente'
+                    });
+
+                } catch (error) {
+                    console.error('Erro ao salvar presente:', error);
+                    alert('Erro ao processar presente. Tente novamente.');
+                    return;
+                }
 
                 // Mostrar instruções de PIX
                 modalContent.innerHTML = `
@@ -125,7 +147,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Adicionar funcionalidade de fechar
                 document.querySelector('.close-instructions').addEventListener('click', function () {
-                    modal.style.display = 'none';
+                    // Mostrar agradecimento antes de fechar
+                    modalContent.innerHTML = `
+                        <div class="thank-you-message">
+                            <div class="thank-you-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Muito obrigado!</h3>
+                            <p>Ficamos muito felizes com seu presente!</p>
+                            <p>Mal podemos esperar para celebrar com você! 💕</p>
+                            <button type="button" class="btn-primary final-close">Fechar</button>
+                        </div>
+                    `;
+
+                    // Fechar após 3 segundos ou ao clicar no botão
+                    const finalClose = () => {
+                        modal.style.display = 'none';
+                    };
+
+                    document.querySelector('.final-close').addEventListener('click', finalClose);
+                    setTimeout(finalClose, 3000);
                 });
             });
         });
