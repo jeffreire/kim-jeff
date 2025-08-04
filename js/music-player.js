@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				console.log('Música reproduzida com sucesso!');
 			}).catch(error => {
 				console.error('Erro ao reproduzir música:', error);
-				// Mostrar feedback visual que o usuário precisa clicar para ouvir música
+				// Mostrar back visual que o usuário precisa clicar para ouvir música
 				musicToggle.classList.add('attention');
 			});
 		}
