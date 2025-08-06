@@ -410,7 +410,7 @@ section h2 {
 	}
 
 	100% {
-		transform: translateX(calc(-370px * 27));
+		transform: translateX(calc(-370px * 39));
 	}
 }
 
@@ -882,7 +882,7 @@ footer {
 		}
 
 		100% {
-			transform: translateX(calc(-300px * 37));
+			transform: translateX(calc(-300px * 39));
 		}
 	}
 
@@ -1025,7 +1025,7 @@ footer {
 		}
 
 		100% {
-			transform: translateX(calc(-260px * 37));
+			transform: translateX(calc(-260px * 39));
 		}
 	}
 
@@ -1101,7 +1101,7 @@ footer {
 		}
 
 		100% {
-			transform: translateX(calc(-220px * 37));
+			transform: translateX(calc(-220px * 39));
 		}
 	}
 
@@ -1120,7 +1120,7 @@ footer {
 /* Para Safari Mobile - REGRAS CONSOLIDADAS */
 @supports (-webkit-touch-callout: none) {
 	.carousel-track {
-		animation: scrollCarousel 55s linear infinite !important;
+		animation: scrollCarousel 90s linear infinite !important;
 	}
 
 	.carousel-slide {
@@ -1133,7 +1133,7 @@ footer {
 @media (max-width: 768px) {
 	@supports (-webkit-touch-callout: none) {
 		.carousel-track {
-			animation: scrollCarouselMobile 55s linear infinite !important;
+			animation: scrollCarouselMobile 90s linear infinite !important;
 		}
 	}
 }
@@ -1141,7 +1141,7 @@ footer {
 @media (max-width: 480px) {
 	@supports (-webkit-touch-callout: none) {
 		.carousel-track {
-			animation: scrollCarouselIPhone 55s linear infinite !important;
+			animation: scrollCarouselIPhone 90s linear infinite !important;
 		}
 	}
 }
