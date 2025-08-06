@@ -859,14 +859,19 @@ footer {
 	}
 
 	.horizontal-carousel {
-		height: 360px;
-		/* Aumentado para acomodar imagens maiores */
+		/* Ativar aceleração de hardware para todas as plataformas */
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		perspective: 1000px;
 	}
 
 	.carousel-track {
-		gap: 0.8rem;
-		padding: 0 0.5rem;
-		animation: scrollCarouselMobile 40s linear infinite;
+		/* Melhorar performance da animação */
+		will-change: transform;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
 	}
 
 	.carousel-slide {
@@ -1000,7 +1005,7 @@ footer {
 	.carousel-track {
 		gap: 0.6rem;
 		padding: 0 0.25rem;
-		animation: scrollCarouselIPhone 55s linear infinite;
+		animation: scrollCarouselIPhone 90s linear infinite;
 	}
 
 	.carousel-slide {
@@ -1092,7 +1097,7 @@ footer {
 	}
 
 	.carousel-track {
-		animation: scrollCarouselIPhoneSE 55s linear infinite;
+		animation: scrollCarouselIPhoneSE 90s linear infinite;
 	}
 
 	@keyframes scrollCarouselIPhoneSE {
@@ -1120,12 +1125,31 @@ footer {
 /* Para Safari Mobile - REGRAS CONSOLIDADAS */
 @supports (-webkit-touch-callout: none) {
 	.carousel-track {
-		animation: scrollCarousel 90s linear infinite !important;
+		/* Usar translate3d para aceleração de GPU */
+		animation: none !important;
+		/* Remover animação inicial */
 	}
 
+	/* Animação otimizada para iOS */
+	@keyframes iosCarousel {
+		0% {
+			transform: translate3d(0, 0, 0);
+		}
+
+		100% {
+			transform: translate3d(calc(-300px * 39), 0, 0);
+		}
+	}
+
+	/* Aplicar a nova animação após o carregamento */
+	.carousel-track.ios-loaded {
+		animation: iosCarousel 60s linear infinite !important;
+	}
+
+	/* Ajustar tamanhos específicos para iOS */
 	.carousel-slide {
-		min-width: 350px;
-		height: 420px;
+		min-width: 280px !important;
+		height: 320px !important;
 	}
 }
 
@@ -1140,8 +1164,23 @@ footer {
 
 @media (max-width: 480px) {
 	@supports (-webkit-touch-callout: none) {
-		.carousel-track {
-			animation: scrollCarouselIPhone 90s linear infinite !important;
+		.carousel-slide {
+			min-width: 250px !important;
+			height: 280px !important;
+		}
+
+		@keyframes iosCarouselSmall {
+			0% {
+				transform: translate3d(0, 0, 0);
+			}
+
+			100% {
+				transform: translate3d(calc(-270px * 39), 0, 0);
+			}
+		}
+
+		.carousel-track.ios-loaded {
+			animation: iosCarouselSmall 90s linear infinite !important;
 		}
 	}
 }
