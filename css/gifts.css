@@ -7,6 +7,19 @@
     gap: 10px;
 }
 
+.price-note {
+    font-size: 0.8em;
+    vertical-align: super;
+    color: #666;
+}
+
+.price-note-legend {
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
 
 .category-btn {
     background-color: #f9f7f5;

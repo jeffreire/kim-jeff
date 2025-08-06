@@ -351,6 +351,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Verificar elementos visíveis ao rolar
     window.addEventListener('scroll', handleScrollAnimation);
 
+    const priceElements = document.querySelectorAll('.gift-price');
+
+    priceElements.forEach(element => {
+        const originalPrice = element.textContent;
+        element.innerHTML = `${originalPrice} <span class="price-note">*</span>`;
+    });
+
+    // Adicionar legenda da nota ao final da seção
+    const giftGrid = document.querySelector('.gift-grid');
+    const noteElement = document.createElement('p');
+    noteElement.className = 'price-note-legend';
+    noteElement.textContent = '* Valores meramente ilustrativos';
+    giftGrid.parentNode.appendChild(noteElement);
+
 });
 
 async function getClientIP() {
